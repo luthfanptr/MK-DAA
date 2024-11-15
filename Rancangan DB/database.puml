@@ -1,0 +1,43 @@
+@startuml database
+
+entity User{
+    id_siswa <<PK>>
+    --
+    nama 
+    kelas
+    alamat
+    no_telepon
+}
+
+entity DetailPembayaran{
+    id_detailpembayaran <<PK>>
+    --
+    jenis_biaya
+    nominal 
+    deskripsi 
+    jatuh_tempo
+}
+
+entity MetodePembayaran{
+    id_metodepembayaran <<PK>
+    --
+    nama_metode
+    deskripsi_metode
+}
+
+entity Pembayaran {
+    id_pembayaran <<PK>>
+    --
+    id_siswa <<FK>>
+    id_detailpembayaran <<FK>>
+    id_metodepembayaran <<FK>>
+    jumlah_pembayaran
+    tanggal_pembayaran
+    metode_pembayaran
+}
+
+User ||--o{Pembayaran
+Pembayaran}o--||DetailPembayaran
+Pembayaran}o--||MetodePembayaran
+
+@enduml

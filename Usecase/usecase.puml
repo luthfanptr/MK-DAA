@@ -1,0 +1,36 @@
+@startuml usecase
+
+left to right direction
+actor "Orang Tua Murid" as OT 
+actor Administrator as AD
+
+package "Aktivitas Administrator" {
+    usecase "Kelola Data Siswa" as AD1
+    usecase "Kelola Biaya Pembayaran" as AD2
+    usecase "Catat Pembayaran\ndan Verifikasi" as AD3
+    usecase "Laporan Pembayaran" as AD4
+    usecase "Update Status Pembayaran" as AD5
+    usecase "Lihat dan Cetak \nLaporan Pembayaran" as AD6
+}
+
+package "Aktivitas Orang Tua Murid" {
+    usecase "Melihat Rincian dan Status Pembayaran" as OT1
+    usecase "Pembayaran (Transfer / Tunai)" as OT2
+    usecase "Update Status Pembayaran" as OT3
+}
+
+OT --> OT1
+OT --> OT2
+OT --> OT3
+OT2 .> OT3 :Include
+
+AD --> AD1
+AD --> AD2
+AD --> AD3
+AD --> AD4
+AD --> AD5
+AD --> AD6
+AD3 .> AD5 :include
+AD4 ..> AD6 :include
+
+@enduml

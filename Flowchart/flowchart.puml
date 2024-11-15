@@ -1,0 +1,20 @@
+@startuml flowchart
+
+|Administrator|
+Start
+:Login;
+:Kelola Data Siswa\n(Tambah, Edit, Hapus);
+:Kelola Biaya Pembayaran\n(Tambah, Edit, Hapus);
+:Mencatat Pembayaran\n(Konfirmasi, Update Status);
+:Laporan Pembayaran\n(Lihat dan Cetak);
+stop
+
+|Orang Tua Murid|
+start
+:Login;
+:Lihat Rincian Pembayaran\n(Biaya dan Status);
+:\tMetode Pembayaran\n(Transfer, di Sekolah, E-Wallet);
+:Pembayaran\n(Update Status);
+stop
+
+@enduml
